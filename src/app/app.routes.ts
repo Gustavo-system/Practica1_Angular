@@ -10,7 +10,7 @@ const APP_ROUTES: Routes = [
     { path: 'person', component: HeroesComponent},
     { path: 'about', component: AboutComponent},
     { path: 'h/:id', component:HeoreComponent},
-    { path: '**', pathMatch: 'full', redirectTo: ''}
+    { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});

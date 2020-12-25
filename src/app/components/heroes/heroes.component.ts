@@ -1,5 +1,7 @@
+import { compileNgModuleFromRender2 } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Component, OnInit } from '@angular/core';
 import { HeroesService, Heroe } from '../../servicios/heroes.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-heroes',
@@ -8,9 +10,10 @@ import { HeroesService, Heroe } from '../../servicios/heroes.service';
 })
 export class HeroesComponent implements OnInit {
 
+  // esto ya es una variable local dentro del componente
   heroes:Heroe[] = [];
 
-  constructor( private _choloHeroeService: HeroesService) { }
+  constructor( private _choloHeroeService: HeroesService, private _router:Router) { }
 
   ngOnInit(): void {
     console.log('Init');
@@ -18,8 +21,9 @@ export class HeroesComponent implements OnInit {
     //console.log(this.heroes);
   }
 
-  /*verHeroe(i:number){
-    console.log(i);
-  }*/
+  verHeroe( idx:number ){
+    console.log(idx);
+    this._router.navigate(['/h', idx]);
+  }
 
 }
